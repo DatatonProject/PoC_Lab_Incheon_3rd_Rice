@@ -298,97 +298,43 @@ model_vgg16.compile(optimizer=keras.optimizers.Adam(1e-5),
 ## GradCAM
 ```python
 
-list_images_sample = ["/content/imgs/train/indica_extra/indica (5000).png",
-                      "/content/imgs/test/indica_norm/indica (1002).png",
-                      "/content/imgs/test/japonica_extra/japonica (10078).png",
-                      "/content/imgs/test/japonica_norm/japonica (1048).png"]
+img_path = ["/content/imgs/train/indica_extra/indica (5000).png",
+            "/content/imgs/test/indica_norm/indica (1002).png",
+            "/content/imgs/test/japonica_extra/japonica (10078).png",
+            "/content/imgs/test/japonica_norm/japonica (1048).png"]
 
-model_builder = keras.applications.xception.Xception
-img_size = (299, 299)
-preprocess_input = keras.applications.xception.preprocess_input
-decode_predictions = keras.applications.xception.decode_predictions
-imag = []
+    # First, we create a model that maps the input image to the activations
+    # of the last conv layer as well as the output predictions
+    grad_model = tf.keras.models.Model(
+        [model.inputs], [model.get_layer(last_conv_layer_name).output, model.output]
+    )
 
-last_conv_layer_name = "block14_sepconv2_act"
-# 이미지를 np array로
-
-def get_img_array(img_path, size):
-    img = keras.preprocessing.image.load_img(img_path, target_size = size) 
-    array = keras.preprocessing.image.img_to_array(img) 
-    array = np.expand_dims(array, axis = 0)
-    return array
-
-# Top Heatmap sampling
-
-def make_gradcam_heatmap(img_array, model, last_conv_layer_name, pred_index = None):
-    grad_model = tf.keras.models.Model([model.inputs], [model.get_layer(last_conv_layer_name).output, model.output])
-
+    # Then, we compute the gradient of the top predicted class for our input image
+    # with respect to the activations of the last conv layer
     with tf.GradientTape() as tape:
         last_conv_layer_output, preds = grad_model(img_array)
         if pred_index is None:
             pred_index = tf.argmax(preds[0])
         class_channel = preds[:, pred_index]
 
+    # This is the gradient of the output neuron (top predicted or chosen)
+    # with regard to the output feature map of the last conv layer
     grads = tape.gradient(class_channel, last_conv_layer_output)
+
+    # This is a vector where each entry is the mean intensity of the gradient
+    # over a specific feature map channel
     pooled_grads = tf.reduce_mean(grads, axis=(0, 1, 2))
 
+    # We multiply each channel in the feature map array
+    # by "how important this channel is" with regard to the top predicted class
+    # then sum all the channels to obtain the heatmap class activation
     last_conv_layer_output = last_conv_layer_output[0]
     heatmap = last_conv_layer_output @ pooled_grads[..., tf.newaxis]
     heatmap = tf.squeeze(heatmap)
+
+    # For visualization purpose, we will also normalize the heatmap between 0 & 1
     heatmap = tf.maximum(heatmap, 0) / tf.math.reduce_max(heatmap)
     return heatmap.numpy()
-
-# Heat map sorting
-
-covid_noncovid_heatmap = []
-
-for i in list_images_sample:
-    img_array = preprocess_input(get_img_array(i, size = img_size))
-    model = model_builder(weights = "imagenet")
-    model.layers[-1].activation = None
-    preds = model.predict(img_array)
-    heatmap = make_gradcam_heatmap(img_array, model, last_conv_layer_name)
-    covid_noncovid_heatmap.append(heatmap)
-
-# GradCAM 출력
-
-def save_and_display_gradcam(img_path, heatmap, cam_path = "cam.jpg", alpha = 0.4):
-    img = keras.preprocessing.image.load_img(img_path)
-    img = keras.preprocessing.image.img_to_array(img)
-
-    heatmap = np.uint8(255 * heatmap)
-
-    jet = cm.get_cmap("hsv")
-    jet_colors = jet(np.arange(256))[:, :3]
-    jet_heatmap = jet_colors[heatmap]
-    jet_heatmap = keras.preprocessing.image.array_to_img(jet_heatmap)
-    jet_heatmap = jet_heatmap.resize((img.shape[1], img.shape[0]))
-    jet_heatmap = keras.preprocessing.image.img_to_array(jet_heatmap)
-
-    superimposed_img = jet_heatmap * alpha + img
-    superimposed_img = keras.preprocessing.image.array_to_img(superimposed_img)
-    superimposed_img.save(cam_path)
-
-    imag.append(cv2.imread(img_path))
-    imag.append(cv2.imread("./cam.jpg"))
-
-
-for i in range(len(list_images_sample)):
-    save_and_display_gradcam(list_images_sample[i], covid_noncovid_heatmap[i])
-
-
-def plot_multiple_img(img_matrix_list, title_list, ncols, main_title = ""):
-
-    fig, myaxes = plt.subplots(figsize = (15, 8), nrows = 2, ncols = ncols, squeeze = False)
-    fig.suptitle(main_title, fontsize = 18)
-    fig.subplots_adjust(wspace = 0.3)
-    fig.subplots_adjust(hspace = 0.3)
-
-    for i, (img, title) in enumerate(zip(img_matrix_list, title_list)):
-        myaxes[i // ncols][i % ncols].imshow(img)
-        myaxes[i // ncols][i % ncols].set_title(title, fontsize = 15)
-
-    plt.show()
 
 
 
