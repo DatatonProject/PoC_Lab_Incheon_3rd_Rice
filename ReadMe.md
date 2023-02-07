@@ -22,16 +22,11 @@
   - 팀장
   - 
   - 
-      - 
-      - 
-          - 
-  - 
-  - 
+ 
   
 * 강서준  
   [![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/the-huistle)](https://github.com/dyno-seojoon/)    
-  
-  
+ 
   - 
   - 
   - 
@@ -74,6 +69,8 @@ for i in os.listdir('imgs/train'):
     rice_classes+=[i]
 rice_classes.sort()
 ```
+![rice](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/000.%20%EC%8C%80.png?raw=true)
+<br>
 
 #### 2. 이미지 전처리
 ```python
