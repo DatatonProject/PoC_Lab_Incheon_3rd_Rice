@@ -97,29 +97,6 @@ test_ds = datagen.flow_from_directory(
     
 ```
 ![rice](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/000.%20%EC%8C%80.png?raw=true)
-이미지 
-```python
-def plot_train_history(history):
-    plt.figure(figsize=(15,5))
-    plt.subplot(1,2,1)
-    plt.plot(history.history['accuracy'])
-    plt.plot(history.history['val_accuracy'])
-    plt.title('Model accuracy')
-    plt.ylabel('accuracy')
-    plt.xlabel('epoch')
-    plt.legend(['train', 'validation'], loc='upper left')
-    
-    plt.subplot(1,2,2)
-    plt.plot(history.history['loss'])
-    plt.plot(history.history['val_loss'])
-    plt.title('Model loss')
-    plt.ylabel('loss')
-    plt.xlabel('epoch')
-    plt.legend(['train', 'validation'], loc='upper left')
-    plt.show()
-    
-```
-
 
 #### 3. 학습
 
