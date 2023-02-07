@@ -52,14 +52,15 @@
 
 <br>
 
-#### 1. 이미지 파일을 splitfolders를 사용하여 train, val, test를 각 8:1:1 비율로 나눈다.
+#### 1. splitfolders로 train, val, test를 각 8:1:1 비율로 나눈다.
 ```python
 splitfolders.ratio(base_ds, output='imgs', seed=123, ratio=(.8,.1,.1), group_prefix=None)
 
 # (Copying files: 20003 files [06:23, 52.18 files/s])
 ```
 
-split 된 파일을 각각 라벨링
+<br>
+
 ```python
 japonica_norm = [fn for fn in os.listdir(f'{base_ds}/japonica_norm') if fn.endswith('.png')]
 japonica_extra = [fn for fn in os.listdir(f'{base_ds}/japonica_extra') if fn.endswith('.png')]
@@ -74,7 +75,7 @@ rice_classes.sort()
 
 <br>
 
-#### 2. 이미지 전처리
+#### 2. 이미지 전처리 및 라벨링
 ```python
 train_ds = datagen.flow_from_directory(
     'imgs/train',
@@ -98,7 +99,12 @@ test_ds = datagen.flow_from_directory(
     shuffle=False)
     
 ```
+
+<br>
+
 ![rice](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/000.%20%EC%8C%80.png?raw=true)
+
+<br>
 
 #### 3. 학습
 
@@ -209,6 +215,8 @@ Non-trainable params: 1,920
 _________________________________________________________________
 ```
 
+<br>
+
 ```python
 
 vgg16 = VGG16(weights="imagenet", include_top=False, input_shape=input_shape)
@@ -256,13 +264,20 @@ model_vgg16.compile(optimizer=keras.optimizers.Adam(1e-5),
               loss='categorical_crossentropy', metrics=['accuracy'])
 
 ```
+
+<br>
+
 # Vanilla CNN Confusion Matrix
 
 ![ccm](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/4.%20CNN%20Confusion.png)
 
+<br>
+
 # Vgg16 Confusion Matrix
 
 ![vcm](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/8.%20Vgg16%20Confusion.png)
+
+<br>
 
 #### 4. 최종 출력
 
@@ -368,7 +383,11 @@ plot_multiple_img(imag, titles_list, ncols = 4, main_title = "RICE TYPE Image An
 
 ```
 
+<br>
+
 ![Grad cam](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/11.%20cam.png)
+
+<br>
 
 ```python
 
@@ -386,7 +405,11 @@ for i in range(9):
 
 ```
 
+<br>
+
 ![pred&true](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/11.%20pred%20%26%20true.png)
+
+<br>
 
 ## Reference
 * [CNN](https://github.com/sjchoi86/dl_tutorials_10weeks/blob/master/papers/ImageNet%20Classification%20with%20Deep%20Convolutional%20Neural%20Networks.pdf)
