@@ -16,15 +16,15 @@
 ## 구성원 및 역할
 
 * 이평섭
-[![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/hyelimchoi1223)](https://github.com/fmfmsd/Chamchee)
+[![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/fmfmsd)]
   
   
   - 데이터 크롭 및 전처리
   - 모델 테스트 및 파인튜닝
  
   
-* 강서준  
-  [![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/the-huistle)](https://github.com/dyno-seojoon/)    
+* 강서준
+  [![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/dyno-seojoon)]
  
   - 데이터 크롭
   - 모델 테스트
