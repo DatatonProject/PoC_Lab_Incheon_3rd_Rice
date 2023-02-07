@@ -36,16 +36,21 @@
 ![MS](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/milestone.png)
 ---
 
+<br>
+
 ## 사용한 기술 스택
 
 - Goole Colab, Jupyter Notebook
 - Google Cloud Platform
 
+<br>
 
 ## 프로젝트 세부 동작
 
 ### Input 이미지가 되는 벼를 CNN model을 이용하여 학습한다. 합성곱 계층은 Conv2D-Batch Normalization-MaxPooling2D을 순차적으로 연결하여 구성하였다.
 
+
+<br>
 
 #### 1. 이미지 파일을 splitfolders를 사용하여 train, val, test를 각 8:1:1 비율로 나눈다.
 ```python
