@@ -76,6 +76,18 @@ rice_classes.sort()
 <br>
 
 #### 2. 이미지 전처리 및 라벨링
+
+```python
+datagen = ImageDataGenerator(rescale=1./255)
+
+#rescale = 1./255
+
+# 원본 이미지 파일은 0-255의 RGB 계수로 구성되는데, 
+# 입력값은 모델을 효과적으로 학습시키기에 너무 높다. (통상적인 learning rate를 사용할 경우). 
+# 따라서 전처리 과정에 앞서 가장 먼저 적용하고 1/255로 스케일링하여 0-1 범위로 변환. 
+
+```
+
 ```python
 train_ds = datagen.flow_from_directory(
     'imgs/train',
