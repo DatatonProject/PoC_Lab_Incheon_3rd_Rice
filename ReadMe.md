@@ -294,7 +294,7 @@ model_vgg16.compile(optimizer=keras.optimizers.Adam(1e-5),
 #### 4. 최종 출력
 
 
-# Gradcam
+## GradCAM
 ```python
 
 list_images_sample = ["/content/imgs/train/indica_extra/indica (5000).png",
@@ -317,7 +317,7 @@ def get_img_array(img_path, size):
     array = np.expand_dims(array, axis = 0)
     return array
 
-# Top Heatmap 샘플링
+# Top Heatmap sampling
 
 def make_gradcam_heatmap(img_array, model, last_conv_layer_name, pred_index = None):
     grad_model = tf.keras.models.Model([model.inputs], [model.get_layer(last_conv_layer_name).output, model.output])
@@ -337,7 +337,7 @@ def make_gradcam_heatmap(img_array, model, last_conv_layer_name, pred_index = No
     heatmap = tf.maximum(heatmap, 0) / tf.math.reduce_max(heatmap)
     return heatmap.numpy()
 
-# heat map sorting
+# Heat map sorting
 
 covid_noncovid_heatmap = []
 
@@ -349,7 +349,7 @@ for i in list_images_sample:
     heatmap = make_gradcam_heatmap(img_array, model, last_conv_layer_name)
     covid_noncovid_heatmap.append(heatmap)
 
-# Display GradCAM output
+# GradCAM 출력
 
 def save_and_display_gradcam(img_path, heatmap, cam_path = "cam.jpg", alpha = 0.4):
     img = keras.preprocessing.image.load_img(img_path)
@@ -431,6 +431,6 @@ for i in range(9):
 ## Reference
 * [CNN](https://github.com/sjchoi86/dl_tutorials_10weeks/blob/master/papers/ImageNet%20Classification%20with%20Deep%20Convolutional%20Neural%20Networks.pdf)
 * [VGGnet](https://arxiv.org/pdf/1409.1556.pdf)
-* [](https://)
-* [](https://)
+* [Fine-Tuning VGG Neural Network For Fine-grained State Recognition of Food Images](https://arxiv.org/ftp/arxiv/papers/1809/1809.09529.pdf)
+* [Grad-CAM](https://arxiv.org/pdf/1610.02391.pdf)
 * [](http://)
