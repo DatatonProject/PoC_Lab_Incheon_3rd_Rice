@@ -19,20 +19,16 @@
   [![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/hyelimchoi1223)](https://github.com/fmfmsd/Chamchee)
   
   
-  - 팀장
-  - 
-  - 
+  - 데이터 크롭 및 전처리
+  - 모델 테스트 및 파인튜닝
  
   
 * 강서준  
   [![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/the-huistle)](https://github.com/dyno-seojoon/)    
  
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - 데이터 크롭
+  - 모델 테스트
+  - 보고서 및 ppt 작성
   
 
 ---
