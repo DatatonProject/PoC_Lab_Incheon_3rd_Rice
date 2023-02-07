@@ -36,7 +36,7 @@
   
 
 ## Project milestone
-![]()
+![MS](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/milestone.png)
 
 
 ## 사용한 기술 스택
