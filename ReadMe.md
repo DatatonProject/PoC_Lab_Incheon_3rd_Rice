@@ -16,7 +16,7 @@
 ## 구성원 및 역할
 
 * 이평섭
-[![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/fmfmsd)]
+[![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/fmfmsd)](https://github.com/fmfmsd)
   
   
   - 데이터 크롭 및 전처리
@@ -24,7 +24,7 @@
  
   
 * 강서준
-  [![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/dyno-seojoon)]
+  [![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/dyno-seojoon)](https://github.com/dyno-seojoon)
  
   - 데이터 크롭
   - 모델 테스트
