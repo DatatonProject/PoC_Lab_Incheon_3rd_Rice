@@ -19,28 +19,28 @@
 ## 구성원 및 역할
 
 * 이평섭
-  [![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/hyelimchoi1223)](https://github.com/hyelimchoi1223)  [![Blog Badge](http://img.shields.io/badge/-Blog-EF2D5E?style=flat-square&logo=GitHub%20Sponsors&logoColor=white&link=https://hyelimchoi1223.github.io/)](https://hyelimchoi1223.github.io/)
+  [![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/hyelimchoi1223)](https://github.com/fmfmsd/Chamchee)
   
   
   - 팀장
-  - MongoDB를 이용한 단어장 구성
-  - API 개발 및 배포
-      - 웹 크롤링 모듈 구현
-      - 단어 자동완성 모듈 구현
-          - 크롤링 + LRNounsStructure
-  - Flask를 이용한 웹 개발 및 배포
-  - GCP 웹 서버 및 API 서버 구성
+  - 
+  - 
+      - 
+      - 
+          - 
+  - 
+  - 
   
 * 강서준  
-  [![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/the-huistle)](https://github.com/the-huistle)    [![Blog Badge](http://img.shields.io/badge/-Blog-EF2D5E?style=flat-square&logo=GitHub%20Sponsors&logoColor=white&link=https://the-huistle.github.io/)](https://the-huistle.github.io/)
+  [![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/the-huistle)](https://github.com/dyno-seojoon/)    
   
   
-  - 데이터 전처리
-  - 명사추출
-  - 카테고리 재정의
-  - 카테고리 분류 모델
-  - 데이터 불균형 해소 (마르코프 체인)
-  - 웹 서버 기본 세팅
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   
 
 ## Project milestone
