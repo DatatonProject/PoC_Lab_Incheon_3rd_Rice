@@ -387,8 +387,8 @@ for i in range(9):
 ![pred&true](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/11.%20pred%20%26%20true.png)
 
 ## Reference
-* [](https://)
-* [](https://)
+* [CNN](https://github.com/sjchoi86/dl_tutorials_10weeks/blob/master/papers/ImageNet%20Classification%20with%20Deep%20Convolutional%20Neural%20Networks.pdf)
+* [VGGnet](https://arxiv.org/pdf/1409.1556.pdf)
 * [](https://)
 * [](https://)
 * [](http://)
