@@ -366,6 +366,8 @@ plot_multiple_img(imag, titles_list, ncols = 4, main_title = "RICE TYPE Image An
 
 ```
 
+![Grad cam](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/11.%20cam.png)
+
 ```python
 
 plt.figure(figsize=(10, 10))
@@ -382,6 +384,7 @@ for i in range(9):
 
 ```
 
+![pred&true](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/11.%20pred%20%26%20true.png)
 
 ## Reference
 * [](https://)
