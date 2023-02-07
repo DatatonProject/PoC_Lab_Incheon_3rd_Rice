@@ -16,7 +16,7 @@
 ## 구성원 및 역할
 
 * 이평섭
-  [![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/hyelimchoi1223)](https://github.com/fmfmsd/Chamchee)
+[![Tech Blog Badge](http://img.shields.io/badge/-Github-black?style=flat-square&logo=github&link=https://github.com/hyelimchoi1223)](https://github.com/fmfmsd/Chamchee)
   
   
   - 데이터 크롭 및 전처리
