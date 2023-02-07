@@ -69,7 +69,7 @@ for i in os.listdir('imgs/train'):
     rice_classes+=[i]
 rice_classes.sort()
 ```
-![rice](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/000.%20%EC%8C%80.png?raw=true)
+
 <br>
 
 #### 2. 이미지 전처리
@@ -96,7 +96,7 @@ test_ds = datagen.flow_from_directory(
     shuffle=False)
     
 ```
-
+![rice](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/000.%20%EC%8C%80.png?raw=true)
 이미지 
 ```python
 def plot_train_history(history):
