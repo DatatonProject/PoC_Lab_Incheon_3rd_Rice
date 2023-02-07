@@ -50,7 +50,7 @@
 ```python
 splitfolders.ratio(base_ds, output='imgs', seed=123, ratio=(.8,.1,.1), group_prefix=None)
 
-# ([Copying files: 20000 files [10:15,  1.96s/ files]')
+# (Copying files: 20003 files [06:23, 52.18 files/s])
 ```
 
 split 된 파일을 각각 라벨링
