@@ -42,6 +42,7 @@
 
 - Goole Colab, Jupyter Notebook
 - Google Cloud Platform
+- Keras.API
 
 <br>
 
