@@ -303,36 +303,31 @@ img_path = ["/content/imgs/train/indica_extra/indica (5000).png",
             "/content/imgs/test/japonica_extra/japonica (10078).png",
             "/content/imgs/test/japonica_norm/japonica (1048).png"]
 
-    # First, we create a model that maps the input image to the activations
-    # of the last conv layer as well as the output predictions
+    # 활성화 함수에 이미지를 맵핑
+    # output에 CAM을 적용하여 출력
     grad_model = tf.keras.models.Model(
         [model.inputs], [model.get_layer(last_conv_layer_name).output, model.output]
     )
 
-    # Then, we compute the gradient of the top predicted class for our input image
-    # with respect to the activations of the last conv layer
+    # 다음 입력 이미지에 대한 최상위 예측 클래스의 gradient를 계산합니다.
     with tf.GradientTape() as tape:
         last_conv_layer_output, preds = grad_model(img_array)
         if pred_index is None:
             pred_index = tf.argmax(preds[0])
         class_channel = preds[:, pred_index]
 
-    # This is the gradient of the output neuron (top predicted or chosen)
-    # with regard to the output feature map of the last conv layer
+    # feature map에 마지막 Cov layer 출력값의 기울기 
     grads = tape.gradient(class_channel, last_conv_layer_output)
 
-    # This is a vector where each entry is the mean intensity of the gradient
-    # over a specific feature map channel
+    # 각 항목이 특정 feature map 채널에 대한 그래디언트의 평균 벡터값.
     pooled_grads = tf.reduce_mean(grads, axis=(0, 1, 2))
 
-    # We multiply each channel in the feature map array
-    # by "how important this channel is" with regard to the top predicted class
-    # then sum all the channels to obtain the heatmap class activation
+    # feature map array의 각 채널에 최상위 예측 class와 관련하여 "Top Score pred"를 rhqgksek.
     last_conv_layer_output = last_conv_layer_output[0]
     heatmap = last_conv_layer_output @ pooled_grads[..., tf.newaxis]
     heatmap = tf.squeeze(heatmap)
 
-    # For visualization purpose, we will also normalize the heatmap between 0 & 1
+    # 시각화를 위해 heatmap을 0과 1사이로 정규화
     heatmap = tf.maximum(heatmap, 0) / tf.math.reduce_max(heatmap)
     return heatmap.numpy()
 
