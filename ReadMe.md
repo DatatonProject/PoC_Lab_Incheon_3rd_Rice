@@ -254,7 +254,13 @@ model_vgg16.compile(optimizer=keras.optimizers.Adam(1e-5),
               loss='categorical_crossentropy', metrics=['accuracy'])
 
 ```
+# Vanilla CNN Confusion Matrix
 
+![ccm](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/4.%20CNN%20Confusion.png)
+
+# Vgg16 Confusion Matrix
+
+![vcm](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/8.%20Vgg16%20Confusion.png)
 
 #### 4. 최종 출력
 
