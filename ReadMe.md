@@ -293,6 +293,8 @@ model_vgg16.compile(optimizer=keras.optimizers.Adam(1e-5),
 
 #### 4. 최종 출력
 
+
+# Gradcam
 ```python
 
 list_images_sample = ["/content/imgs/train/indica_extra/indica (5000).png",
@@ -400,6 +402,9 @@ plot_multiple_img(imag, titles_list, ncols = 4, main_title = "RICE TYPE Image An
 ![Grad cam](https://github.com/DatatonProject/PoC_Lab_Incheon_3rd_Rice/blob/main/Data_Sample/pic/11.%20cam.png)
 
 <br>
+
+
+# Pred & True
 
 ```python
 
